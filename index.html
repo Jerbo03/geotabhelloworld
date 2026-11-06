@@ -1,32 +1,61 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Geotab</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
-
 <body>
+    <main class="hw-container">
+        <header class="hw-header">
+            <h1>Hello Geotab</h1>
+            <p>Prueba de integración con la API de MyGeotab.</p>
+        </header>
 
-    <h1>Hello World!</h1>
+        <section class="hw-panel" aria-labelledby="hw-actions-title">
+            <h2 id="hw-actions-title">Acciones</h2>
+            <div class="hw-actions">
+                <button id="vehiclesButton" class="hw-button" type="button">
+                    Consultar dispositivos
+                </button>
+                <button id="gotoVehiclesButton" class="hw-button hw-button-secondary" type="button">
+                    Abrir página de vehículos
+                </button>
+            </div>
+            <p id="status" class="hw-status" role="status" aria-live="polite">
+                Esperando inicialización de MyGeotab...
+            </p>
+            <p id="error" class="hw-error" role="alert" aria-live="assertive"></p>
+        </section>
 
-    <button id="vehiclesButton">
-        Go to vehicles page
-    </button>
+        <section class="hw-panel" aria-labelledby="hw-message-title">
+            <h2 id="hw-message-title">Prueba de mensaje MIME</h2>
+            <p class="hw-description">
+                Envía el paquete de prueba <code>[5]</code> al dispositivo configurado <code>b315</code>.
+            </p>
+            <button id="sendMessageButton" class="hw-button hw-button-primary" type="button">
+                Enviar paquete de prueba
+            </button>
+            <p id="messageStatus" class="hw-status" role="status" aria-live="polite">
+                Sin mensajes enviados.
+            </p>
+        </section>
 
-    <button id="sendMessageButton">
-        Send message
-    </button>
+        <section class="hw-panel" aria-labelledby="hw-devices-title">
+            <div class="hw-section-heading">
+                <h2 id="hw-devices-title">Dispositivos</h2>
+                <span id="vehicleCount" class="hw-count">0 dispositivos</span>
+            </div>
+            <ul id="vehicleList" class="hw-device-list">
+                <li class="hw-empty">La lista se cargará al abrir el Add-In.</li>
+            </ul>
+        </section>
 
-    <p id="messageStatus"></p>
-
-    <h3>Current vehicles</h3>
-
-    <div id="center">
-        Loading...
-    </div>
-
-    
+        <footer class="hw-footer">
+            <small>Hello Geotab · Add-In de prueba</small>
+        </footer>
+    </main>
 </body>
 </html>

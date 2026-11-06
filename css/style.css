@@ -1,26 +1,187 @@
+:root {
+    color-scheme: light;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #24313a;
+    background: #f4f6f8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+}
+
+.hw-container {
+    width: min(100%, 900px);
+    margin: 0 auto;
+}
+
+.hw-header {
+    margin-bottom: 22px;
+}
+
+.hw-header h1 {
+    margin: 0 0 6px;
+    color: #0078a8;
+    font-size: 28px;
+}
+
+.hw-header p,
+.hw-description {
+    margin: 0;
+    color: #5f6b73;
+    line-height: 1.5;
+}
+
+.hw-panel {
+    margin: 0 0 18px;
     padding: 20px;
+    border: 1px solid #dce2e7;
+    border-radius: 8px;
+    background: #fff;
 }
 
-h1 {
-    color: #0078A8;
+.hw-panel h2 {
+    margin: 0 0 14px;
+    color: #263943;
+    font-size: 18px;
 }
 
-button {
-    padding: 10px 20px;
+.hw-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hw-button {
+    min-height: 40px;
+    padding: 9px 16px;
+    border: 1px solid #0078a8;
+    border-radius: 5px;
+    background: #fff;
+    color: #006b96;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
 }
 
-ul {
-    padding-left: 20px;
+.hw-button-primary {
+    background: #0078a8;
+    color: #fff;
 }
 
-li {
-    padding: 6px;
+.hw-button-secondary {
+    border-color: #aab6bf;
+    color: #3f505b;
+}
+
+.hw-button:hover:not(:disabled) {
+    filter: brightness(0.96);
+}
+
+.hw-button:focus-visible,
+.hw-device-link:focus-visible {
+    outline: 3px solid #83c9e5;
+    outline-offset: 2px;
+}
+
+.hw-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.hw-status {
+    min-height: 20px;
+    margin: 13px 0 0;
+    color: #53636d;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.hw-error {
+    margin: 8px 0 0;
+    color: #b42318;
+    font-size: 13px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.hw-section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.hw-section-heading h2 {
+    margin-bottom: 10px;
+}
+
+.hw-count {
+    color: #687780;
+    font-size: 12px;
+}
+
+.hw-device-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hw-device-list li {
+    padding: 10px 4px;
+    border-top: 1px solid #edf0f2;
+    overflow-wrap: anywhere;
+}
+
+.hw-device-list li:first-child {
+    border-top: 0;
+}
+
+.hw-device-link {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #006b96;
+    font: inherit;
+    text-align: left;
     cursor: pointer;
 }
 
-li:hover {
-    background-color: #eeeeee;
+.hw-device-link:hover {
+    text-decoration: underline;
+}
+
+.hw-device-id {
+    margin-left: 6px;
+    color: #687780;
+    font-size: 12px;
+}
+
+.hw-empty {
+    color: #687780;
+    font-size: 13px;
+}
+
+.hw-footer {
+    padding: 2px 2px 12px;
+    color: #87939b;
+    text-align: right;
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 14px;
+    }
+
+    .hw-panel {
+        padding: 16px;
+    }
+
+    .hw-button {
+        width: 100%;
+    }
 }
