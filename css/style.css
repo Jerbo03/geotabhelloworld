@@ -1,0 +1,13 @@
+.hello-container {
+    font-family: Arial, sans-serif;
+    padding: 24px;
+}
+
+.hello-container h1 {
+    color: #0078A8;
+}
+
+.hello-container button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
