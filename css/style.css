@@ -1,6 +1,6 @@
-.hello-container {
+body {
     font-family: Arial, sans-serif;
-    padding: 24px;
+    padding: 20px;
 }
 
 h1 {
@@ -12,20 +12,15 @@ button {
     cursor: pointer;
 }
 
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-#vehicleList {
+ul {
     padding-left: 20px;
 }
 
-#vehicleList li {
-    padding: 6px 0;
+li {
+    padding: 6px;
+    cursor: pointer;
 }
 
-#error {
-    color: #d32f2f;
-    white-space: pre-wrap;
+li:hover {
+    background-color: #eeeeee;
 }
