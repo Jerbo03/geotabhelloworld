@@ -16,45 +16,50 @@ geotab.addin.helloWorld = function () {
     var sendMsg = function (deviceId, packet) {
 
         // Convert byte array to Base64
-        var binary = String.fromCharCode.apply(null, packet);
+        var binary = packet.map(function (byte) {
+            return String.fromCharCode(byte & 0xFF);
+        }).join("");
+
         var msg = btoa(binary);
 
         messageStatus.textContent = "Enviando mensaje...";
+
+        console.log("Device:", deviceId);
+        console.log("Packet:", packet);
+        console.log("Base64:", msg);
 
         api.call(
             "Add",
             {
                 typeName: "TextMessage",
                 entity: {
-                    user: {
-                        id: "b2D3"
-                    },
                     device: {
                         id: deviceId
                     },
                     messageContent: {
-                        mimeType: "text",
+                        contentType: "MimeContent",
                         channelNumber: 1,
-                        data: msg,
-                        contentType: "MimeContent"
+                        mimeType: "text",
+                        data: msg
                     },
-                    isDirectionToVehicle: true
+                    isDirectionToVehicle: true,
+                    messageSize: 235
                 }
             },
             function (result) {
 
-                messageStatus.textContent =
-                    "Mensaje enviado correctamente.";
-
                 console.log("TextMessage creado:", result);
+
+                messageStatus.textContent =
+                    "TextMessage creado: " + result;
 
             },
             function (error) {
 
-                messageStatus.textContent =
-                    "Error: " + error.message;
+                console.error("Geotab API error:", error);
 
-                console.error("Error enviando mensaje:", error);
+                messageStatus.textContent =
+                    "Error: " + (error.message || JSON.stringify(error));
 
             }
         );
