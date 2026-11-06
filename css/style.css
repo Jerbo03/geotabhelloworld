@@ -3,11 +3,29 @@
     padding: 24px;
 }
 
-.hello-container h1 {
+h1 {
     color: #0078A8;
 }
 
-.hello-container button {
+button {
     padding: 10px 20px;
     cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#vehicleList {
+    padding-left: 20px;
+}
+
+#vehicleList li {
+    padding: 6px 0;
+}
+
+#error {
+    color: #d32f2f;
+    white-space: pre-wrap;
 }

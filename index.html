@@ -7,12 +7,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <div class="hello-container">
         <h1>Hello World!</h1>
         <p>Mi primer Geotab Add-In.</p>
 
+        <h3>Estado de conexión</h3>
         <p id="status">Inicializando...</p>
-        <button id="testButton">Probar</button>
+
+        <button id="testButton" disabled>
+            Consultar vehículos
+        </button>
+
+        <h3>Vehículos encontrados</h3>
+        <p id="vehicleCount">Sin consultar</p>
+
+        <ul id="vehicleList"></ul>
+
+        <pre id="error"></pre>
     </div>
 
     <script src="js/main.js"></script>
