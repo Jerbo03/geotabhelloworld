@@ -10,6 +10,56 @@ geotab.addin.helloWorld = function () {
     const vehicleCount = () => document.getElementById("vehicleCount");
     const error = () => document.getElementById("error");
 
+    var messageStatus = document.getElementById("messageStatus");
+
+    // Send message to Geotab device
+    var sendMsg = function (deviceId, packet) {
+
+        // Convert byte array to Base64
+        var binary = String.fromCharCode.apply(null, packet);
+        var msg = btoa(binary);
+
+        messageStatus.textContent = "Enviando mensaje...";
+
+        api.call(
+            "Add",
+            {
+                typeName: "TextMessage",
+                entity: {
+                    user: {
+                        id: "b2D3"
+                    },
+                    device: {
+                        id: deviceId
+                    },
+                    messageContent: {
+                        mimeType: "text",
+                        channelNumber: 1,
+                        data: msg,
+                        contentType: "MimeContent"
+                    },
+                    isDirectionToVehicle: true
+                }
+            },
+            function (result) {
+
+                messageStatus.textContent =
+                    "Mensaje enviado correctamente.";
+
+                console.log("TextMessage creado:", result);
+
+            },
+            function (error) {
+
+                messageStatus.textContent =
+                    "Error: " + error.message;
+
+                console.error("Error enviando mensaje:", error);
+
+            }
+        );
+    };
+
     function getVehicles() {
 
         if (!api) {
@@ -72,7 +122,15 @@ geotab.addin.helloWorld = function () {
 
             status().textContent = "Add-In inicializado.";
 
-            button().addEventListener("click", getVehicles);
+            document.getElementById("vehiclesButton")
+                .addEventListener("click", getVehicles);
+
+            document.getElementById("sendMessageButton")
+                .addEventListener("click", function () {
+
+                    sendMsg("b315", [5]);
+
+                }, false);
 
             initialized = true;
 
