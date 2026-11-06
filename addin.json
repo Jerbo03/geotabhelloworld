@@ -1,10 +1,10 @@
 {
     "name": "Hello Geotab",
-    "supportEmail": "tu-correo@ejemplo.com",
+    "supportEmail": "2003andrepq@gmail.com",
     "version": "1.0.0",
     "items": [
         {
-            "url": "https://TUUSUARIO.github.io/geotabhelloworld/index.html",
+            "url": "https://Jerbo03.github.io/geotabhelloworld/index.html",
             "path": "ActivityLink",
             "menuName": {
                 "es": "Hello Geotab",
